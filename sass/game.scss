@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+@mixin corner{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border:15px solid rgb(255, 255, 255);
+    
+}
+@mixin panalty{
+    position: absolute;
+    width: 160px;
+    height: 240px;
+    border: 15px solid white;
+
+}
+@mixin goal-points{
+    
+    width: 20px;
+    height: 20px;
+    
+
+}
+
+body{
+    
+    background-color: #333;
+    font-family: sans-serif;
+    color: #fff;
+    font-size: 30px;
+    overflow: hidden;
+}
+.square{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(0, 255, 21);
+    border:15px solid rgb(255, 255, 255);
+    animation: color 2s .5s 1;
+    // animation: name duration timing-function delay iteration-count direction fill-mode;
+}
+
+
+.corner-br{
+    @include corner;
+    bottom: 0;
+    right: 0;
+    border-top-left-radius: 70%;
+    
+}
+.corner-bl{
+    @include corner;
+    bottom: 0;
+    left: 0;
+    border-top-right-radius: 70%
+}
+.corner-tl{
+    @include corner;
+    top: 0;
+    left: 0;
+border-bottom-right-radius: 70%;
+}
+.corner-tr{
+    @include corner;
+    top: 0;right: 0;
+    border-bottom-left-radius: 70%;
+    
+
+}
+.panaltyarena-left{
+     @include panalty;
+     top: 50vh;
+     left:0; 
+     transform: translate(0, -50%); 
+    
+}
+.panaltyarena-right{
+    @include panalty;
+     top: 50vh;
+     right:0; 
+     transform: translate(0, -50%);
+}
+.ball{
+    position: absolute;
+    top: 50%;left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #333;
+    animation: goll 10s; 
+}
+
+@keyframes goll{
+   from{
+    left: 50vw;
+   }
+   50%{
+    left: 0vw;
+
+   }
+   to{
+    left: 100vw;
+   }
+}
+.ball:hover{
+    animation-play-state: paused;
+}
+.goal{
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+}
+.goal-points{
+    
+    
+    animation: jedern 3s 3s infinite;
+
+}
+.goal-points1{
+    
+    animation: jedern 3s infinite;
+
+}
+@keyframes jedern{
+    0%{
+        opacity: 1;
+        background-color: black;
+    }
+    50%{
+        opacity: 0;
+        background-color: #fff;
+    }
+    100%{
+        opacity: 1;
+        background-color: black;
+    }
+
+}
+
+
+
